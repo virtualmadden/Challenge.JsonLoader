@@ -6,3 +6,6 @@ C:\Users\dev\Downloads\Copy of NET Candidate Problem 1\MT.JsonLoader\MT.JsonLoad
 C:\Users\dev\Downloads\Copy of NET Candidate Problem 1\MT.JsonLoader\MT.JsonLoader\obj\Debug\MT.JsonLoader.csprojResolveAssemblyReference.cache
 C:\Users\dev\Downloads\Copy of NET Candidate Problem 1\MT.JsonLoader\MT.JsonLoader\obj\Debug\MT.JsonLoader.exe
 C:\Users\dev\Downloads\Copy of NET Candidate Problem 1\MT.JsonLoader\MT.JsonLoader\obj\Debug\MT.JsonLoader.pdb
+C:\Code\Github\MT.JsonLoader\MT.JsonLoader\MT.JsonLoader\bin\Debug\MT.JsonLoader.exe.config
+C:\Code\Github\MT.JsonLoader\MT.JsonLoader\MT.JsonLoader\obj\Debug\MT.JsonLoader.exe
+C:\Code\Github\MT.JsonLoader\MT.JsonLoader\MT.JsonLoader\obj\Debug\MT.JsonLoader.pdb

@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MT.JsonLoader.Core
+﻿namespace MT.JsonLoader.Core
 {
     public static class Constants
     {
-        public static readonly string[] CommandList = {
-            $"{Commands.Exit } - exits the application",
+        public const string Prompt = ">";
+        public const string TypeHelp = "Type 'help' to see a list of available commands.";
+
+        public static readonly string[] CommandList =
+        {
+            $"{Commands.Exit} - exits the application",
             $"{Commands.Help} - displays these commands",
             $"{Commands.List} - lists the data",
             $"{Commands.SearchBy} <field> <query> - searches the field for the given query"
         };
+
         public static readonly string InvalidCommand = $"\nAn invalid command was entered.\n{TypeHelp}\n";
-        public const string Prompt = ">";
-        public const string TypeHelp = "Type 'help' to see a list of available commands.";
         public static readonly string Title = "Metal Toad Json Parser";
         public static readonly string Welcome = $"Welcome to the Metal Toad Json Parsing application.\n{TypeHelp}\n";
 
