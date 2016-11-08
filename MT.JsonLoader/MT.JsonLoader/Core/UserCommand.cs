@@ -27,7 +27,13 @@ namespace MT.JsonLoader.Core
         {
             Console.Write($"{Constants.Prompt} ");
             var input = Console.ReadLine();
-            var tokenizedInput = Regex.Split(input, @"\s+");
+
+            if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
+            {
+                input = "help";
+            }
+
+            var tokenizedInput = Regex.Split(input, @"\s+").ToList();
 
             return Parse(tokenizedInput);
         }
@@ -37,7 +43,7 @@ namespace MT.JsonLoader.Core
         /// </summary>
         /// <param name="commands">An array of strings representing commands from the user</param>
         /// <returns>A UserCommand with a Command and its Parameters</returns>
-        private static UserCommand Parse(IEnumerable<string> commands)
+        private static UserCommand Parse(List<string> commands)
         {
             return new UserCommand
             {
