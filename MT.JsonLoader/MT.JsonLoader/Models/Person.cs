@@ -23,7 +23,8 @@ namespace MT.JsonLoader.Models
         [JsonProperty("CharacterClass")]
         public string CharacterClass { get; set; }
 
-        public Followers FollowerCount { get; set; }
+        [JsonProperty("Followers")]
+        public int FollowerCount { get; set; }
 
         public string SourceFile { get; set; }
     }
