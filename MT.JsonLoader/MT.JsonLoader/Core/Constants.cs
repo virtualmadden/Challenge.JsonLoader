@@ -17,6 +17,8 @@
         public static readonly string Title = "Metal Toad Json Parser";
         public static readonly string Welcome = $"Welcome to the Metal Toad Json Parsing application.\n{TypeHelp}\n";
 
+        public static readonly string HelpCommand = "exit\tExits the application\r\n\r\nhelp\tDisplays all available commands\r\n\r\nlist\tDisplays all of the data in the file\r\n\r\nsearchby <field><searchString>\tSearches data on the given <field> and displays the results based on the <searchString>";
+
         public static class Commands
         {
             public static readonly string Exit = "exit";
