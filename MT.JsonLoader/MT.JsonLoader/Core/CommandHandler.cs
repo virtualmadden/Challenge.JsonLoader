@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using MT.JsonLoader.Models;
 
 namespace MT.JsonLoader.Core
 {
@@ -17,16 +19,20 @@ namespace MT.JsonLoader.Core
             };
         }
 
+        private List<Person> People { get; set; }
+
         private Dictionary<string, Action<IEnumerable<string>>> CommandMap { get; }
 
         /// <summary>
         ///     Starts handling commands
         /// </summary>
         /// <returns>The user's command object</returns>
-        public UserCommand ReadCommand()
+        public UserCommand ReadCommand(IEnumerable<Person> people)
         {
             try
             {
+                People = people.ToList();
+
                 var userCommand = UserCommand.GetCommands();
 
                 if (!string.IsNullOrWhiteSpace(userCommand.Command))
@@ -53,8 +59,7 @@ namespace MT.JsonLoader.Core
         /// <returns></returns>
         private static void HelpCommandHandler(IEnumerable<string> parameters)
         {
-            //  Implement Help command
-            throw new NotImplementedException("\nHelp Command not implemented!\n");
+            Console.WriteLine(Constants.HelpCommand);
         }
 
         /// <summary>
@@ -62,10 +67,27 @@ namespace MT.JsonLoader.Core
         /// </summary>
         /// <param name="parameters">Additional command parameters</param>
         /// <returns></returns>
-        private static void ListCommandHandler(IEnumerable<string> parameters)
+        private void ListCommandHandler(IEnumerable<string> parameters)
         {
-            //  Implement List command
-            throw new NotImplementedException("\nList command not implemented!\n");
+            if (parameters.Any())
+            {
+                var people = People.Where(x => x.SourceFile.Equals(parameters.First())).ToList();
+
+                if (parameters.First().Equals("peopleRpg.json", StringComparison.InvariantCultureIgnoreCase))
+                    foreach (var person in people)
+                        Console.WriteLine(
+                            $"{person.Id} - {person.FirstName} - {person.LastName} - {person.CharacterRace} - {person.CharacterClass}");
+                else if (parameters.First().Equals("peopleWithFollowers.json", StringComparison.InvariantCultureIgnoreCase))
+                    foreach (var person in people)
+                        Console.WriteLine(
+                            $"{person.Id} - {person.FirstName} - {person.LastName} - {person.Email} - {person.FollowerCount}");
+            }
+            else
+            {
+                foreach (var person in People)
+                    Console.WriteLine(
+                        $"{person.Id} - {person.FirstName} - {person.LastName} - {person.Email} - {person.CharacterRace} - {person.CharacterClass} - {person.FollowerCount}");
+            }
         }
 
         /// <summary>
@@ -73,10 +95,40 @@ namespace MT.JsonLoader.Core
         /// </summary>
         /// <param name="parameters">Additional command parameters</param>
         /// <returns></returns>
-        private static void SearchByCommandHandler(IEnumerable<string> parameters)
+        private void SearchByCommandHandler(IEnumerable<string> parameters)
         {
-            //  Implement the SearchBy command
-            throw new NotImplementedException("\nSearchBy command not implemented!\n");
+            var people = new List<Person>();
+
+            var searchTerm = parameters.Skip(1).First();
+
+            switch (parameters.First())
+            {
+                case "Id":
+                    people.AddRange(People.Where(x => x.Id.ToString().Equals(searchTerm)));
+                    break;
+                case "FirstName":
+                    people.AddRange(People.Where(x => x.FirstName.Contains(searchTerm)));
+                    break;
+                case "LastName":
+                    people.AddRange(People.Where(x => x.LastName.Contains(searchTerm)));
+                    break;
+                case "Email":
+                    people.AddRange(People.Where(x => x.Email.Contains(searchTerm)));
+                    break;
+                case "CharacterRace":
+                    people.AddRange(People.Where(x => x.CharacterRace.Contains(searchTerm)));
+                    break;
+                case "CharacterClass":
+                    people.AddRange(People.Where(x => x.CharacterClass.Contains(searchTerm)));
+                    break;
+                case "Followers":
+                    people.AddRange(People.Where(x => x.FollowerCount.Equals(Convert.ToInt32(searchTerm))));
+                    break;
+            }
+
+            foreach (var person in people)
+                Console.WriteLine(
+                    $"{person.Id} - {person.FirstName} - {person.LastName} - {person.Email} - {person.CharacterRace} - {person.CharacterClass} - {person.FollowerCount}");
         }
     }
 }
