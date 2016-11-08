@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using MT.JsonLoader.Core;
-using MT.JsonLoader.Models;
 
 namespace MT.JsonLoader
 {
@@ -18,24 +16,22 @@ namespace MT.JsonLoader
             UserCommand userCommand;
             var commandHandler = new CommandHandler();
 
-            var people = LoadJsonFiles().ToList();
+            string dir = null;
+
+            if (args.Any())
+            {
+                if (args.Contains("-f"))
+                {
+                    dir = args.SkipWhile(x => x != "-f").ElementAt(1);
+                }
+            }
+
+            var people = FileHandler.LoadJsonFiles(dir).ToList();
 
             do
             {
-               userCommand = commandHandler.ReadCommand(people);
+                userCommand = commandHandler.ReadCommand(people);
             } while (!userCommand.IsExit);
-        }
-
-        private static IEnumerable<Person> LoadJsonFiles()
-        {
-            var files = FileHandler.GetFiles(@"..\..\Data");
-
-            var people = new List<Person>();
-
-            foreach (var file in files)
-                people.AddRange(FileHandler.LoadFile(file));
-
-            return people;
         }
     }
 }
