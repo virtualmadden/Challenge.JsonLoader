@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Challenge.JsonLoader.Models
+namespace Json.Loader.Models
 {
     public class Followers
     {

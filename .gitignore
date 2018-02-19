@@ -1,6 +1,6 @@
 ### Cake ###
-tools/*
-!tools/packages.config
+Build/tools/*
+!Build/tools/packages.config
 
 ### JetBrains+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm

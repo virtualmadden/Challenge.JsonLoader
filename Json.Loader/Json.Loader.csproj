@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,10 +37,6 @@
 
   <ItemGroup>
     <None Include="$(OutputPath)\*.*" Pack="true" PackagePath="." />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CardProcessorRtgService.Library\CardProcessorRtgService.Library.csproj" />
   </ItemGroup>
 
 </Project>

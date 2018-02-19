@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Challenge.JsonLoader.Models;
+using Json.Loader.Models;
 
-namespace Challenge.JsonLoader.Core
+namespace Json.Loader.Core
 {
     internal class CommandHandler
     {

@@ -1,4 +1,4 @@
-﻿namespace Challenge.JsonLoader.Core
+﻿namespace Json.Loader.Core
 {
     public static class Constants
     {

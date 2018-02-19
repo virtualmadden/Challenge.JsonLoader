@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Challenge.JsonLoader.Models;
+using Json.Loader.Models;
 using Newtonsoft.Json;
 
-namespace Challenge.JsonLoader.Core
+namespace Json.Loader.Core
 {
     public static class FileHandler
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Challenge.JsonLoader.Core;
+using Json.Loader.Core;
 
-namespace Challenge.JsonLoader
+namespace Json.Loader
 {
     internal class Program
     {
