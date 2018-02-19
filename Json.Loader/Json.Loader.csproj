@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Json.Loader</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Jonathan Madden</Authors>
+    <Description>A simple sample program to load and parse a Json file..</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Copyright>Copyright 2018 (c). All rights reserved.</Copyright>
+    <PackageTags>logger logging logs</PackageTags>
+    <StartupObject>Json.Loader.Program</StartupObject>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(OutputPath)\*.*" Pack="true" PackagePath="." />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CardProcessorRtgService.Library\CardProcessorRtgService.Library.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,4 +1,4 @@
-﻿# Challenge.JsonLoader
+﻿# Json.Loader
 Develop an interactive command line application. 
 
 You must read in data from the given JSON files (located in the Data folder).
